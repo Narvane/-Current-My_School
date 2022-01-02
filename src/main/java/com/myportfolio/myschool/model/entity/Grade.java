@@ -1,0 +1,34 @@
+package com.myportfolio.myschool.model.entity;
+
+import com.myportfolio.myschool.model.contants.AttributeConstants;
+import com.myportfolio.myschool.model.contants.ColumnConstants;
+import com.myportfolio.myschool.model.contants.SequenceConstants;
+import com.myportfolio.myschool.model.contants.TableConstants;
+import lombok.*;
+
+import javax.persistence.*;
+
+import static javax.persistence.GenerationType.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
+@Entity
+@Table(name = TableConstants.GRADE)
+public class Grade implements AbstractEntity {
+
+    @Id
+    @Column(name = AttributeConstants.ID)
+    @GeneratedValue(generator = SequenceConstants.GENERATE_GRADE, strategy = SEQUENCE)
+    @SequenceGenerator(name = SequenceConstants.GENERATE_GRADE, sequenceName = SequenceConstants.NAME_GRADE, allocationSize = 1)
+    private Long id;
+
+    @Column(name = ColumnConstants.NAME)
+    private String name;
+
+    @Column(name = ColumnConstants.VALUE)
+    private Double value;
+
+}

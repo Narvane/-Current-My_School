@@ -1,0 +1,31 @@
+tenants:
+  datasources:
+    public:
+      jdbcUrl: jdbc:postgresql://localhost:5432/my_school?currentSchema=public
+      driverClassName: org.postgresql.Driver
+      username: postgres
+      password: postgres
+    myschool_1:
+      jdbcUrl: jdbc:postgresql://localhost:5432/my_school?currentSchema=myschool_1
+      driverClassName: org.postgresql.Driver
+      username: postgres
+      password: postgres
+    myschool_2:
+      jdbcUrl: jdbc:postgresql://localhost:5432/my_school?currentSchema=myschool_2
+      driverClassName: org.postgresql.Driver
+      username: postgres
+      password: postgres
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  flyway:
+    enabled: false
+
